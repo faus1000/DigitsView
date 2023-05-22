@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js"></script>
-    <title>NumG View</title>
+    <title>Digits view</title>
     <style>
         body {
            background-color: #030f1a; /* 
@@ -11,59 +11,24 @@
         }
 
         .egroup {
-            /* background-color: red; */
+          /*    background-color: rgb(0, 255, 34);*/
             width: auto;
             height: auto;
+            display: flex;
 
         }
 
         .ogroup {
-            /* 
-              background-color: red;   */
+            
+            /*   background-color: red;   */
             width: auto;
             height: auto;
             vertical-align: bottom;
-        }
-
-        .line {
-            width: 100%;
-            height: 5px;
-            /* background-color: green; light */
-            background-color: #07c37a;
-            margin: 0px 0px 4px 0px;
-            border-radius: 2px 2px 2px 2px;
-            /*dark*/
-        }
-
-        .lineO {
-            width: 100%;
-            height: 5px;
-            /* background-color: red; light*/
-            background-color: #ff8256;
-            margin: 4px 0px 0px 0px;
-            border-radius: 2px 2px 2px 2px;
-            /* dark*/
-        }
-
-        .counterE {
-            font-size: 30px;
-            justify-content: center;
             display: flex;
-            /* color: rgb(4, 95, 4); light*/
-            color: rgb(57, 211, 57);
-            /* dark*/
-            font-weight: bold;
         }
 
-        .counterO {
-            font-size: 30px;
-            justify-content: center;
-            display: flex;
-            /* color: red; light*/
-            color: #ff2626;
-            /* dark*/
-            font-weight: bold;
-        }
+
+        
 
         #container {
             display: flex;
@@ -73,7 +38,7 @@
 
         .eDigits {
            
-            background-color: rgba(0 ,128, 0, 0.42); 
+            background-color: rgba(0 ,128, 0, 0.35); 
             color: #ffffff;
             font-size: 24;
             width: 32px;
@@ -100,16 +65,7 @@
             transform: translate(1px, 0px);
         }
 
-        .eDigitsContainer {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .oDigitsContainer {
-            display: flex;
-            flex-direction: row;
-        }
-
+       
         /**/
         .oPosition {
             font-size: 22;
@@ -124,10 +80,11 @@
             align-items: center;
             transform: translate(1px, 0px);
         }
+       
 
         .oDigits {
             
-            background-color:rgba(219, 41, 41, 0.42); 
+            background-color:rgba(219, 41, 41, 0.31); 
             color: #ffffff;
             font-size: 24;
             width: 32px;
@@ -141,42 +98,7 @@
 
         }
 
-        .spacer {
-            height: 44.5px;
-            /* background-color: rebeccapurple; */
-        }
-        .oDiference {
-            font-size: 18;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-           /* background-color: rgba(255, 125, 18, 0.32);*/
-          /* background-color: rgba(255, 255, 255, 0.137);*/
-           background-color: rgba(189, 255, 240, 0.18);
-           border:rgba(1, 199, 195,0.74) solid 0.2px;
-           /*  color: rgba(255, 255, 255, 0.918);*/
-            display: flex;
-            justify-content: center;
-            justify-items: center;
-            align-items: center;
-            transform: translate(1px, -2px);
-        }
-        .eDiference {
-            font-size: 18;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-           /* background-color: rgba(0 ,131, 255 , 0.22);*/
-          /* background-color: rgba(255, 255, 255, 0.137);*/
-          background-color: rgba(189, 255, 240, 0.18);
-           border: rgba(1, 199, 195,0.74) solid 0.2px;
-          /*   color: rgba(255, 255, 255, 0.795);*/
-            display: flex;
-            justify-content: center;
-            justify-items: center;
-            align-items: center;
-            transform: translate(1px, 0px);
-        }
+        
     </style>
 
 </head>
@@ -198,8 +120,12 @@
 
     </div> -->
     <div id="container">
+        <div class="egroup"></div>
+        <div class="ogroup"></div>
         <!-- id="evenDigitsContainer"-->
         <!--  id="oddDigitsContainer"-->
+
+
       <!--  <div class="egroup">
             <span class="counterE">4</span>
             <div class="line"></div>
@@ -275,7 +201,7 @@
         var addOGroup = false;
         var addEGroup = false;
         var AusData = [0,0,0,0,0,0,0,0,0,0];
-
+        
         var one = 0;
         var ResData = [0,0];
       //  var DiferencePatterns = [];
@@ -288,15 +214,12 @@
 
             var digit = Number(data.tick.quote).toFixed(decimals).slice(-1);
             var isScrolledToBottom = out.scrollWidth - out.clientWidth <= out.scrollLeft + 1;
-            // console.log(digit);
             
-            //listado de patrones por diferencia
             ResData[1] = digit;
             ResData[0]= one;
             one = digit;
             var diferencias = ResData[1]-ResData[0];
-            //DiferencePatterns.push(diferencias); 
-            //console.log(DiferencePatterns);
+            
         var percents = [0,0,0,0,0,0,0,0,0,0];
     var percentsValues = [0,0,0,0,0,0,0,0,0,0];    
 if (porcentList.length>periods) {
@@ -344,13 +267,8 @@ for (let index = 0; index < percents.length; index++) {
     
 }
 
-//console.log("25 digits:" + perioDigits);
-//console.log( "units percents" +percents);
 console.log("% percents: "+ percentsValues);
-//  for (let index = 0; index < percentsValues.length; index++) {
-//     var element = percentsValues[index];
-    
-//  }
+
 
 percents = [0,0,0,0,0,0,0,0,0,0]; 
 percentsValue = [0,0,0,0,0,0,0,0,0,0]; 
@@ -362,63 +280,62 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
 
 }
 
-            /////////////////////////////////////////////////
             if (digit == 8) {
                 AusData[8]= co8;
-                co8 = 0;
+                co8 = 0; 
             } else {
                 co8++
             }
             if (digit == 6) {
-              AusData[6]= co6;
+              AusData[6]= co6; 
                 co6 = 0;
             } else {
                 co6++;
             }
             if (digit == 4) {
-                AusData[4]= co4;
+                AusData[4]= co4; 
                 co4 = 0;
             } else {
                 co4++;
             }
             if (digit == 2) {
-                AusData[2]= co2;
+                AusData[2]= co2; 
                 co2 = 0;
             } else {
                 co2++;
             }
             if (digit == 0) {
-               AusData[0]= co0;
+               AusData[0]= co0; 
                 co0 = 0;
             } else {
                 co0++;
             }
             if (digit == 1) {
-               AusData[1]= co1;
+               AusData[1]= co1; 
                 co1 = 0;
             } else {
                 co1++;
             }
             if (digit == 3) {
-               AusData[3]= co3;
+               AusData[3]= co3; 
                 co3 = 0;
             } else {
                 co3++;
             }
             if (digit == 5) {
-                AusData[5]= co5;
+                AusData[5]= co5; 
                 co5 = 0;
             } else {
                 co5++;
             }
             if (digit == 7) {
-                AusData[7]= co7;
+                AusData[7]= co7; 
                 co7 = 0;
             } else {
                 co7++;
             }
             if (digit == 9) {
-                AusData[9]= co9;
+                AusData[9]= co9; 
                 co9 = 0;
 
             } else {
@@ -429,7 +346,7 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 var text = "O";
                 if (oCounter > 0) {
                    // arr1.push(oCounter + text);
-                    AñadirGruposE(digit, 1,contador,AusData[digit],diferencias);
+                    AñadirGruposE(digit, 1,contador,AusData[digit]);
                     addEGroup = true
 
                 }
@@ -439,8 +356,8 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
             } else {
                 var text = "E";
                 if (eCounter > 0) {
-                 //   arr1.push(eCounter + text);
-                    AñadirGruposO(digit, 1,contador,AusData[digit],diferencias);
+                    
+                    AñadirGruposO(digit, 1,contador,AusData[digit]);
                     addOGroup = true;
 
                 }
@@ -448,16 +365,14 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 oCounter += 1;
             }
             if (eCounter > 0) {
-               // var text = "E";
-                //arr2[0] = eCounter + text;
+                
                 if (addEGroup) {
                     addEGroup = false;
                 } else {
-                    AñadirDigitsE(digit, eCounter,contador,AusData[digit],diferencias);
+                    AñadirDigitsE(digit, eCounter,contador,AusData[digit]);
 
                 }
 
-               // console.log("Ecounter mayor a cero");
             }
             if (oCounter > 0) {
                // var text = "O";
@@ -465,60 +380,17 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 if (addOGroup) {
                     addOGroup = false;
                 } else {
-                    AñadirDigitsO(digit, oCounter,contador,AusData[digit],diferencias);
+                    AñadirDigitsO(digit, oCounter,contador,AusData[digit]);
 
                 }
 
-               // console.log("Ocounter mayor a cero");
             }
-            //mostrar en lista este array
-           // listC = arr1 + "," + arr2;
-         //   console.log("Groups: " + listC);
-         //   var digitListView = document.getElementById("digitGroups");
-         
-
             // your script goes here
             // colors text 🟢🔵🔴
-            function AñadirGruposE(digito, Ec,counter,AusCounter,diference) {
-                /*
-                                var eGroup = document.createElement("div");
-                                var eCounter = document.createElement("span");
-                                var eLine = document.createElement("div");
-                                var eDigits = document.createElement("div");
+            function AñadirGruposE(digito, Ec,counter,AusCounter) {
                 
-                                eGroup.setAttribute('class', 'egroup');
-                                eCounter.setAttribute('class', 'counterE');
-                                eLine.setAttribute('class', 'line');
-                                eDigits.setAttribute('class', 'eDigits');
-                
-                                var eCounterText = document.createTextNode(Ec);
-                
-                                var edigitText = document.createTextNode(digito);
-                
-                                eCounter.appendChild(eCounterText);
-                                eDigits.appendChild(edigitText);
-                
-                                eGroup.appendChild(eCounter);
-                                eGroup.appendChild(eLine);
-                                eGroup.appendChild(eDigits);
-                
-                                var container = document.getElementById("container");
-                                container.appendChild(eGroup);
-                */
                 var eGroup = document.createElement("div");
                 eGroup.setAttribute('class', 'egroup');
-
-                var eCounter = document.createElement("span");
-                eCounter.setAttribute('class', 'counterE');
-                var eCounterText = document.createTextNode(Ec);
-                 eCounter.appendChild(eCounterText);
-
-                var eLine = document.createElement("div");
-                eLine.setAttribute('class', 'line');
-
-                var edigitsContainer = document.createElement("div");
-                edigitsContainer.setAttribute('class', 'eDigitsContainer');
-
                 var evenDigits = document.createElement("div");
                 evenDigits.setAttribute('class', 'evenDigits');
 
@@ -528,31 +400,22 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 eDigits.appendChild(edigitText);
 
                 var ePosition = document.createElement("div");
-                ePosition.setAttribute('class', 'ePosition');
+                if (AusCounter >= 10){
+                    ePosition.setAttribute('class', 'oPosition');
+                }else{
+                    ePosition.setAttribute('class', 'ePosition');
+                }
+
+                
+                
                 var ePostxt = document.createTextNode(AusCounter);
                 ePosition.appendChild(ePostxt);
+                
 
-                var eDiference = document.createElement("div");
-                eDiference.setAttribute('class', 'eDiference');
-                if (diference <0) {
-                    //eDiference.style.backgroundColor = NegDiferenceColor;
-                    eDiference.style.color = NegDiferenceColor;
-                }else{
-                  //  eDiference.style.backgroundColor = PosDiferenceColor;
-                    eDiference.style.color = PosDiferenceColor;
-                }
-                var edifertxt = document.createTextNode(diference);
-                eDiference.appendChild(edifertxt);
 
                 evenDigits.appendChild(eDigits);
                 evenDigits.appendChild(ePosition);
-                evenDigits.appendChild(eDiference);
-
-                edigitsContainer.appendChild(evenDigits);
-
-                eGroup.appendChild(eCounter);
-                eGroup.appendChild(eLine);
-                eGroup.appendChild(edigitsContainer);
+                eGroup.appendChild(evenDigits);
 
                 var container = document.getElementById("container");
                 container.appendChild(eGroup);
@@ -561,16 +424,11 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
 
             }
 
-            function AñadirDigitsE(digito, Ec,counter,AusCounter,diference) {
- 
-                var eCounterText = document.createTextNode(Ec); 
+            function AñadirDigitsE(digito, Ec,counter,AusCounter) {
+
                 var edigitText = document.createTextNode(digito);
 
-                var counterItem = document.getElementsByClassName("counterE");
-
-                counterItem[counterItem.length - 1].innerHTML = Ec;
-
-                var digitoItem = document.getElementsByClassName("eDigitsContainer");
+                var digitoItem = document.getElementsByClassName("egroup");
 
                 var evenDigits = document.createElement("div");
                 evenDigits.setAttribute('class', 'evenDigits');
@@ -581,47 +439,26 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 eDigits.appendChild(edigitText);
 
                 var ePosition = document.createElement("div");
-                ePosition.setAttribute('class', 'ePosition');
+                if (AusCounter >= 10){
+                    ePosition.setAttribute('class', 'oPosition');
+                }else{
+                    ePosition.setAttribute('class', 'ePosition');
+                }
+                
                 var ePostxt = document.createTextNode(AusCounter);
                 ePosition.appendChild(ePostxt);
 
-                var eDiference = document.createElement("div");
-                eDiference.setAttribute('class', 'eDiference');
-                if (diference <0) {
-                    //eDiference.style.backgroundColor = NegDiferenceColor;
-                    eDiference.style.color = NegDiferenceColor;
-                }else{
-                  //  eDiference.style.backgroundColor = PosDiferenceColor;
-                    eDiference.style.color = PosDiferenceColor;
-                }
-                var edifertxt = document.createTextNode(diference);
-                eDiference.appendChild(edifertxt);
+               
 
                 evenDigits.appendChild(eDigits);
                 evenDigits.appendChild(ePosition);
-                evenDigits.appendChild(eDiference);
-                // var n;
-                // for (n = 0; n < digitoItem.length; ++n) {
-                //     digitoItem[n].appendChild(edigitText)
-                // }
                 digitoItem[digitoItem.length - 1].appendChild(evenDigits);
 
             }
 
-            function AñadirGruposO(digito, Oc,counter,AusCounter,diference) {
+            function AñadirGruposO(digito, Oc,counter,AusCounter) {
                 var oGroup = document.createElement("div");
                 oGroup.setAttribute('class', 'ogroup');
-
-                var oCounter = document.createElement("span");
-                oCounter.setAttribute('class', 'counterO');
-                var oCounterText = document.createTextNode(Oc);
-                oCounter.appendChild(oCounterText);
-
-                var oLine = document.createElement("div");
-                oLine.setAttribute('class', 'lineO');
-
-                var odigitsContainer = document.createElement("div");
-                odigitsContainer.setAttribute('class', 'oDigitsContainer');
 
                 var oddDigits = document.createElement("div");
                 oddDigits.setAttribute('class', 'oddDigits');
@@ -632,49 +469,28 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 oDigits.appendChild(odigitText);
 
                 var oPosition = document.createElement("div");
-                oPosition.setAttribute('class', 'oPosition');
+                if (AusCounter >= 10){
+                    oPosition.setAttribute('class', 'oPosition');
+                }else{
+                    oPosition.setAttribute('class', 'ePosition');
+                } 
                 var oPostxt = document.createTextNode(AusCounter);
                 oPosition.appendChild(oPostxt);
 
-                var spacer = document.createElement("div");
-                spacer.setAttribute('class', 'spacer');
-
-                var oDiference = document.createElement("div");
-                oDiference.setAttribute('class', 'oDiference');
-                if (diference <0) {
-                    //oDiference.style.backgroundColor = NegDiferenceColor;
-                    oDiference.style.color = NegDiferenceColor;
-                }else{
-                   // oDiference.style.backgroundColor = PosDiferenceColor;
-                    oDiference.style.color= PosDiferenceColor;
-                }
-                var odifertxt = document.createTextNode(diference);
-                oDiference.appendChild(odifertxt);
 
                oddDigits.appendChild(oDigits);
                oddDigits.appendChild(oPosition);
-               oddDigits.appendChild(oDiference);
-
-               odigitsContainer.appendChild(oddDigits); 
                 
-
-                oGroup.appendChild(spacer);
-                oGroup.appendChild(odigitsContainer);
-                oGroup.appendChild(oLine);
-                oGroup.appendChild(oCounter);
-
+                oGroup.appendChild(oddDigits);
                 var container = document.getElementById("container");
                 container.appendChild(oGroup);
 
             }
 
-            function AñadirDigitsO(digito, Oc,counter,AusCounter,diference) {
-                
-                var counterItem = document.getElementsByClassName("counterO");
+            function AñadirDigitsO(digito, Oc,counter,AusCounter) {
 
-                counterItem[counterItem.length - 1].innerHTML = Oc;
 
-                var digitoItemO = document.getElementsByClassName("oDigitsContainer");
+                var digitoItemO = document.getElementsByClassName("ogroup");
 
                 var oddDigits = document.createElement("div");
                 oddDigits.setAttribute('class', 'oddDigits');
@@ -685,44 +501,27 @@ percentsValue = [0,0,0,0,0,0,0,0,0,0];
                 oDigits.appendChild(odigitText);
 
                 var oPosition = document.createElement("div");
-                oPosition.setAttribute('class', 'oPosition');
+                if (AusCounter >= 10){
+                    oPosition.setAttribute('class', 'oPosition');
+                }else{
+                    oPosition.setAttribute('class', 'ePosition');
+                }  
                 var oPostxt = document.createTextNode(AusCounter);
                 oPosition.appendChild(oPostxt);
 
-                var oDiference = document.createElement("div");
-                oDiference.setAttribute('class', 'oDiference');
-                if (diference <0) {
-                    //oDiference.style.backgroundColor = NegDiferenceColor;
-                    oDiference.style.color = NegDiferenceColor;
-                }else{
-                   // oDiference.style.backgroundColor = PosDiferenceColor;
-                    oDiference.style.color= PosDiferenceColor;
-                }
-                var odifertxt = document.createTextNode(diference);
-                oDiference.appendChild(odifertxt);
+             
 
                 oddDigits.appendChild(oDigits);
                 oddDigits.appendChild(oPosition);
-                oddDigits.appendChild(oDiference);
                 
                 digitoItemO[digitoItemO.length - 1].appendChild(oddDigits);
             }
 
-            function IndexChange() {
-                var e = document.getElementById("Indices");
-                var item = e.options[e.selectedIndex].value;
-                symbol = item;
-                // con esto obtenemos cada indice y renderizamos nuevamente el grafico
-                // crear otra version que funcione para iterar historial de ticks, o tambien podemos incluirlo en este :)
-                console.log(item);
-            }
 
             if (isScrolledToBottom) {
                 out.scrollLeft = out.scrollWidth - out.clientWidth;
-                // console.log("scroll desplazado al final");
             } else {
-                //out.scrollLeft = out.scrollWidth - out.clientWidth;
-                //  console.log("Se movio el scroll del borde");
+
             }
 
         }
