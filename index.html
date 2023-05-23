@@ -152,113 +152,20 @@
             one = digit;
             var diferencias = ResData[1] - ResData[0];
 
-
-
-            if (digit == 8) {
-                AusData[8] = co8;
-                co8 = 0;
-            } else {
-                co8++
-            }
-            if (digit == 6) {
-                AusData[6] = co6;
-                co6 = 0;
-            } else {
-                co6++;
-            }
-            if (digit == 4) {
-                AusData[4] = co4;
-                co4 = 0;
-            } else {
-                co4++;
-            }
-            if (digit == 2) {
-                AusData[2] = co2;
-                co2 = 0;
-            } else {
-                co2++;
-            }
-            if (digit == 0) {
-                AusData[0] = co0;
-                co0 = 0;
-            } else {
-                co0++;
-            }
-            if (digit == 1) {
-                AusData[1] = co1;
-                co1 = 0;
-            } else {
-                co1++;
-            }
-            if (digit == 3) {
-                AusData[3] = co3;
-                co3 = 0;
-            } else {
-                co3++;
-            }
-            if (digit == 5) {
-                AusData[5] = co5;
-                co5 = 0;
-            } else {
-                co5++;
-            }
-            if (digit == 7) {
-                AusData[7] = co7;
-                co7 = 0;
-            } else {
-                co7++;
-            }
-            if (digit == 9) {
-                AusData[9] = co9;
-                co9 = 0;
-
-            } else {
-                co9++;
-            }
+ 
 
             if (digit % 2 === 0) {
-                var text = "O";
-                if (oCounter > 0) {
-                    // arr1.push(oCounter + text);
+                
                     AñadirDigitsE(digit, eCounter, contador);
-                    addEGroup = true
-
-                }
-                oCounter = 0;
-                eCounter += 1;
+                
 
             } else {
-                var text = "E";
-                if (eCounter > 0) {
+                
 
                     AñadirDigitsO(digit, oCounter, contador);
-                    addOGroup = true;
-
-                }
-                eCounter = 0;
-                oCounter += 1;
+                   
             }
-            if (eCounter > 0) {
-
-                if (addEGroup) {
-                    addEGroup = false;
-                } else {
-                    AñadirDigitsE(digit, eCounter, contador);
-
-                }
-
-            }
-            if (oCounter > 0) {
-                // var text = "O";
-                //arr2[0] = oCounter + text;
-                if (addOGroup) {
-                    addOGroup = false;
-                } else {
-                    AñadirDigitsO(digit, oCounter, contador);
-
-                }
-
-            }
+          
             // your script goes here
             // colors text 🟢🔵🔴
 
